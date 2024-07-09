@@ -550,7 +550,7 @@ runs:
         inputs.custom_task != 'comment' &&
         ((failure() && env.MERGE_FAILED != '1') || steps.spelling.outputs.followup) &&
         steps.spelling.outputs.internal_state_directory
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: "check-spelling-comment"
         path: |
@@ -565,7 +565,7 @@ runs:
     - name: artifact-sarif
       id: artifact-sarif
       if: (success() || (failure() && env.MERGE_FAILED != '1')) && env.UPLOAD_SARIF != ''
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: "check-spelling-sarif"
         retention-days: 1
